@@ -1,0 +1,10 @@
+<Project>
+  <!--<Import Sdk="Lx.Build.Sdk" Version="1.0.0" Project="Sdk.targets"/>-->
+
+	<Target Name="SuperCleanup" BeforeTargets="CoreClean" >
+		<RemoveDir Directories="$(MSBuildThisFileDirectory)\bin" />
+		<!--<Exec Command="git clean -fdX" WorkingDirectory="$(MSBuildThisFileDirectory)\src" />-->
+		<Exec Command="dotnet nuget locals all --clear" WorkingDirectory="$(MSBuildThisFileDirectory)\src" />
+		<!--<Exec Command="dotnet build /p:GeneratePackageOnBuild=true /bl:$(MSBuildThisFileDirectory)\_buildlog\build.binlog" WorkingDirectory="$(MSBuildThisFileDirectory)\src" />-->  
+	</Target>
+</Project>

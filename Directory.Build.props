@@ -1,0 +1,17 @@
+<Project >
+	<PropertyGroup>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsNotAsErrors>612,618</WarningsNotAsErrors>
+	</PropertyGroup>
+	<PropertyGroup>
+		<OutputPath>$(MSBuildThisFileDirectory)\bin\$(MSBuildProjectName)\</OutputPath>
+		<PackageOutputPath>$(MSBuildThisFileDirectory)\..\_local\</PackageOutputPath>
+	</PropertyGroup>
+	
+	<!--Use AppGates Transitive Pack-->
+	<ItemGroup Condition="'$(Nuget_AutoPackProjectReferences)' == 'false'">
+		<PackageReference Include="AppGates.Net.Build.TransitivePack" Version="*" PrivateAssets="all"/>
+		<PackageReference Include="AppGates.Net.Build.Packaging.AutoPush" Version="*" PrivateAssets="all"/>
+	</ItemGroup>
+
+</Project>
